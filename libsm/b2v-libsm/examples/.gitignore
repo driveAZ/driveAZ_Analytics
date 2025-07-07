@@ -1,0 +1,16 @@
+#ignore everything, then unignore directories/things with a period in the name
+*
+!/**/
+!*.*
+!Makefile
+
+#re-ignore everything else
+*.swp
+.gdb_history
+*.o
+
+#test stuff
+.cpputestBuild
+testBinary
+testBinary.txt
+.uncrustify

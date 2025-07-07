@@ -1,0 +1,243 @@
+ASN_MODULE_SRCS=	\
+	AccidentsAndIncidents.c	\
+	AlternateRoute.c	\
+	AssetStatus.c	\
+	Closures.c	\
+	DelayStatusCancellation.c	\
+	DeviceStatus.c	\
+	Disasters.c	\
+	Disturbances.c	\
+	GenericLocations.c	\
+	IncidentResponseEquipment.c	\
+	IncidentResponseStatus.c	\
+	SystemInformation.c	\
+	AdviceInstructionsMandatory.c	\
+	AdviceInstructionsRecommendations.c	\
+	ITIStext.c	\
+	ITISgroups.c	\
+	ITIScodes.c	\
+	LaneRoadway.c	\
+	LargeNumbers.c	\
+	MobileSituation.c	\
+	MUTCDLocations.c	\
+	NamedObjects.c	\
+	Objects.c	\
+	Obstruction.c	\
+	ParkingInformation.c	\
+	PavementConditions.c	\
+	Precipitation.c	\
+	Qualifiers.c	\
+	RecreationalObjectsAndActivities.c	\
+	RegulatoryAndWarningSigns.c	\
+	ResponderGroupAffected.c	\
+	RestrictionClass.c	\
+	RoadsideAssets.c	\
+	Roadwork.c	\
+	SmallNumbers.c	\
+	SpecialEvents.c	\
+	SportingEvents.c	\
+	StatesAndTerritories.c	\
+	StreetSuffixes.c	\
+	Structures.c	\
+	SuggestionAdvice.c	\
+	Temperature.c	\
+	TrafficConditions.c	\
+	TransitMode.c	\
+	TransitOperations.c	\
+	TravelerGroupAffected.c	\
+	Units.c	\
+	UnusualDriving.c	\
+	ValidManeuvers.c	\
+	VehicleGroupAffected.c	\
+	VisibilityAndAirQuality.c	\
+	WarningAdvice.c	\
+	WeatherConditions.c	\
+	Winds.c	\
+	WinterDrivingIndex.c	\
+	WinterDrivingRestrictions.c	\
+	ITISEventType.c	\
+	ITIScodesAndText.c	\
+	EXTERNAL.c
+
+ASN_MODULE_HDRS=	\
+	AccidentsAndIncidents.h	\
+	AlternateRoute.h	\
+	AssetStatus.h	\
+	Closures.h	\
+	DelayStatusCancellation.h	\
+	DeviceStatus.h	\
+	Disasters.h	\
+	Disturbances.h	\
+	GenericLocations.h	\
+	IncidentResponseEquipment.h	\
+	IncidentResponseStatus.h	\
+	SystemInformation.h	\
+	AdviceInstructionsMandatory.h	\
+	AdviceInstructionsRecommendations.h	\
+	ITIStext.h	\
+	ITISgroups.h	\
+	ITIScodes.h	\
+	LaneRoadway.h	\
+	LargeNumbers.h	\
+	MobileSituation.h	\
+	MUTCDLocations.h	\
+	NamedObjects.h	\
+	Objects.h	\
+	Obstruction.h	\
+	ParkingInformation.h	\
+	PavementConditions.h	\
+	Precipitation.h	\
+	Qualifiers.h	\
+	RecreationalObjectsAndActivities.h	\
+	RegulatoryAndWarningSigns.h	\
+	ResponderGroupAffected.h	\
+	RestrictionClass.h	\
+	RoadsideAssets.h	\
+	Roadwork.h	\
+	SmallNumbers.h	\
+	SpecialEvents.h	\
+	SportingEvents.h	\
+	StatesAndTerritories.h	\
+	StreetSuffixes.h	\
+	Structures.h	\
+	SuggestionAdvice.h	\
+	Temperature.h	\
+	TrafficConditions.h	\
+	TransitMode.h	\
+	TransitOperations.h	\
+	TravelerGroupAffected.h	\
+	Units.h	\
+	UnusualDriving.h	\
+	ValidManeuvers.h	\
+	VehicleGroupAffected.h	\
+	VisibilityAndAirQuality.h	\
+	WarningAdvice.h	\
+	WeatherConditions.h	\
+	Winds.h	\
+	WinterDrivingIndex.h	\
+	WinterDrivingRestrictions.h	\
+	ITISEventType.h	\
+	ITIScodesAndText.h	\
+	EXTERNAL.h
+
+ASN_MODULE_HDRS+=ANY.h
+ASN_MODULE_SRCS+=ANY.c
+ASN_MODULE_HDRS+=OCTET_STRING.h
+ASN_MODULE_HDRS+=OPEN_TYPE.h
+ASN_MODULE_SRCS+=OPEN_TYPE.c
+ASN_MODULE_HDRS+=constr_CHOICE.h
+ASN_MODULE_HDRS+=GraphicString.h
+ASN_MODULE_SRCS+=GraphicString.c
+ASN_MODULE_HDRS+=IA5String.h
+ASN_MODULE_SRCS+=IA5String.c
+ASN_MODULE_HDRS+=INTEGER.h
+ASN_MODULE_SRCS+=INTEGER.c
+ASN_MODULE_HDRS+=NativeInteger.h
+ASN_MODULE_SRCS+=NativeInteger.c
+ASN_MODULE_HDRS+=OBJECT_IDENTIFIER.h
+ASN_MODULE_SRCS+=OBJECT_IDENTIFIER.c
+ASN_MODULE_HDRS+=asn_codecs_prim.h
+ASN_MODULE_HDRS+=ObjectDescriptor.h
+ASN_MODULE_SRCS+=ObjectDescriptor.c
+ASN_MODULE_HDRS+=asn_SEQUENCE_OF.h
+ASN_MODULE_SRCS+=asn_SEQUENCE_OF.c
+ASN_MODULE_HDRS+=asn_SET_OF.h
+ASN_MODULE_SRCS+=asn_SET_OF.c
+ASN_MODULE_SRCS+=constr_CHOICE.c
+ASN_MODULE_HDRS+=constr_SEQUENCE.h
+ASN_MODULE_SRCS+=constr_SEQUENCE.c
+ASN_MODULE_HDRS+=constr_SEQUENCE_OF.h
+ASN_MODULE_SRCS+=constr_SEQUENCE_OF.c
+ASN_MODULE_HDRS+=constr_SET_OF.h
+ASN_MODULE_SRCS+=constr_SET_OF.c
+ASN_MODULE_HDRS+=asn_application.h
+ASN_MODULE_SRCS+=asn_application.c
+ASN_MODULE_HDRS+=asn_ioc.h
+ASN_MODULE_HDRS+=asn_system.h
+ASN_MODULE_HDRS+=asn_codecs.h
+ASN_MODULE_HDRS+=asn_internal.h
+ASN_MODULE_SRCS+=asn_internal.c
+ASN_MODULE_HDRS+=asn_bit_data.h
+ASN_MODULE_SRCS+=asn_bit_data.c
+ASN_MODULE_SRCS+=OCTET_STRING.c
+ASN_MODULE_HDRS+=BIT_STRING.h
+ASN_MODULE_SRCS+=BIT_STRING.c
+ASN_MODULE_SRCS+=asn_codecs_prim.c
+ASN_MODULE_HDRS+=ber_tlv_length.h
+ASN_MODULE_SRCS+=ber_tlv_length.c
+ASN_MODULE_HDRS+=ber_tlv_tag.h
+ASN_MODULE_SRCS+=ber_tlv_tag.c
+ASN_MODULE_HDRS+=constr_TYPE.h
+ASN_MODULE_SRCS+=constr_TYPE.c
+ASN_MODULE_HDRS+=constraints.h
+ASN_MODULE_SRCS+=constraints.c
+ASN_MODULE_HDRS+=per_decoder.h
+ASN_MODULE_HDRS+=per_encoder.h
+ASN_MODULE_HDRS+=per_support.h
+ASN_MODULE_HDRS+=per_opentype.h
+ASN_MODULE_SRCS+=per_decoder.c
+ASN_MODULE_SRCS+=per_encoder.c
+ASN_MODULE_SRCS+=per_support.c
+ASN_MODULE_SRCS+=per_opentype.c
+ASN_MODULE_HDRS+=uper_decoder.h
+ASN_MODULE_HDRS+=uper_encoder.h
+ASN_MODULE_HDRS+=uper_support.h
+ASN_MODULE_HDRS+=uper_opentype.h
+ASN_MODULE_SRCS+=uper_decoder.c
+ASN_MODULE_SRCS+=uper_encoder.c
+ASN_MODULE_SRCS+=uper_support.c
+ASN_MODULE_SRCS+=uper_opentype.c
+ASN_MODULE_SRCS+=ANY_uper.c
+ASN_MODULE_SRCS+=BIT_STRING_uper.c
+ASN_MODULE_SRCS+=INTEGER_uper.c
+ASN_MODULE_SRCS+=NativeInteger_uper.c
+ASN_MODULE_SRCS+=OCTET_STRING_uper.c
+ASN_MODULE_SRCS+=OPEN_TYPE_uper.c
+ASN_MODULE_SRCS+=constr_CHOICE_uper.c
+ASN_MODULE_SRCS+=constr_SEQUENCE_OF_uper.c
+ASN_MODULE_SRCS+=constr_SEQUENCE_uper.c
+ASN_MODULE_SRCS+=constr_SET_OF_uper.c
+ASN_MODULE_SRCS+=BIT_STRING_print.c
+ASN_MODULE_SRCS+=INTEGER_print.c
+ASN_MODULE_SRCS+=NativeInteger_print.c
+ASN_MODULE_SRCS+=OBJECT_IDENTIFIER_print.c
+ASN_MODULE_SRCS+=OCTET_STRING_print.c
+ASN_MODULE_SRCS+=constr_CHOICE_print.c
+ASN_MODULE_SRCS+=constr_SEQUENCE_print.c
+ASN_MODULE_SRCS+=constr_SET_OF_print.c
+ASN_MODULE_HDRS+=asn_random_fill.h
+ASN_MODULE_SRCS+=asn_random_fill.c
+ASN_MODULE_SRCS+=BIT_STRING_rfill.c
+ASN_MODULE_SRCS+=INTEGER_rfill.c
+ASN_MODULE_SRCS+=NativeInteger_rfill.c
+ASN_MODULE_SRCS+=OBJECT_IDENTIFIER_rfill.c
+ASN_MODULE_SRCS+=OCTET_STRING_rfill.c
+ASN_MODULE_SRCS+=constr_CHOICE_rfill.c
+ASN_MODULE_SRCS+=constr_SEQUENCE_rfill.c
+ASN_MODULE_SRCS+=constr_SET_OF_rfill.c
+ASN_MODULE_HDRS+=jer_support.h
+ASN_MODULE_HDRS+=jer_decoder.h
+ASN_MODULE_HDRS+=jer_encoder.h
+ASN_MODULE_SRCS+=jer_support.c
+ASN_MODULE_SRCS+=jer_decoder.c
+ASN_MODULE_SRCS+=jer_encoder.c
+ASN_MODULE_SRCS+=ANY_jer.c
+ASN_MODULE_SRCS+=BIT_STRING_jer.c
+ASN_MODULE_SRCS+=INTEGER_jer.c
+ASN_MODULE_SRCS+=NativeInteger_jer.c
+ASN_MODULE_SRCS+=OBJECT_IDENTIFIER_jer.c
+ASN_MODULE_SRCS+=OCTET_STRING_jer.c
+ASN_MODULE_SRCS+=OPEN_TYPE_jer.c
+ASN_MODULE_SRCS+=asn_codecs_prim_jer.c
+ASN_MODULE_SRCS+=constr_CHOICE_jer.c
+ASN_MODULE_SRCS+=constr_SEQUENCE_OF_jer.c
+ASN_MODULE_SRCS+=constr_SEQUENCE_jer.c
+ASN_MODULE_SRCS+=constr_SET_OF_jer.c
+
+ASN_MODULE_CFLAGS=-DASN_DISABLE_BER_SUPPORT -DASN_DISABLE_XER_SUPPORT -DASN_DISABLE_OER_SUPPORT -DASN_DISABLE_APER_SUPPORT 
+
+lib_LTLIBRARIES+=libasncodec.la
+libasncodec_la_SOURCES=$(ASN_MODULE_SRCS) $(ASN_MODULE_HDRS)
+libasncodec_la_CPPFLAGS=-I$(top_srcdir)/
+libasncodec_la_CFLAGS=$(ASN_MODULE_CFLAGS)
+libasncodec_la_LDFLAGS=-lm

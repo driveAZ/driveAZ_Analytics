@@ -1,0 +1,74 @@
+#!groovy
+library 'B2VStatusReporter'
+
+
+pipeline {
+    agent any
+    stages {
+        stage('lint') {
+            agent {
+                docker {
+                    registryUrl 'https://ghcr.io/'
+                    registryCredentialsId 'detroit.jenkins-github-ghcr'
+                    image 'ghcr.io/us-detroit/internal-b2v-ci-lint:v3'
+                }
+            }
+            steps {
+                script {
+                    try {
+                        sh './tooling/lint.sh --non-interactive --todo-fail'
+                    } catch (err) {
+                        if(err.getMessage().contains("script returned exit code 2")) {
+                            unstable("lint failed")
+                        } else {
+                            error("lint.sh unknown error, caught '${err}'; check shell stage above")
+                        }
+                    }
+                }
+            }
+        }
+        stage('build & test') {
+            environment {
+                CFLAGS = '-Werror'
+            }
+            parallel {
+                stage('build gcc') {
+                    agent { label 'cmake && gcc' }
+                    environment {
+                        CC = 'gcc'
+                        CXX = 'g++'
+                    }
+                    steps {
+                        sh '''
+                            rm -rf build
+                            cmake -B build
+                            cmake --build build/
+                            '''
+                    }
+                }
+                stage('build clang & run test') {
+                    agent { label 'cmake && clang' }
+                    environment {
+                        CC = 'clang'
+                        CXX = 'clang++'
+                    }
+                    steps {
+                        sh '''
+                            rm -rf build
+                            cmake -B build
+                            cmake --build build/
+                            mkdir test-output
+                            cd test-output
+                            ../build/bin/test_libsm -o junit
+                        '''
+                    }
+                    post { always { junit 'test-output/*.xml' } }
+                }
+            }
+        }
+    }
+    post {
+        always { script { b2vPost() } }
+        cleanup { script { cleanWs() } }
+    }
+}

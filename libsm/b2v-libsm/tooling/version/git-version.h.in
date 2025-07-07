@@ -1,0 +1,10 @@
+#ifndef @GIT_VERSION_NAME@_GIT_VERSION_H
+#define @GIT_VERSION_NAME@_GIT_VERSION_H
+
+extern const char* VERSION_@GIT_VERSION_NAME@_MAJOR;
+extern const char* VERSION_@GIT_VERSION_NAME@_MINOR;
+extern const char* VERSION_@GIT_VERSION_NAME@_PATCH;
+extern const char* VERSION_@GIT_VERSION_NAME@_GIT;
+extern const char* VERSION_@GIT_VERSION_NAME@;
+
+#endif // GIT_VERSION_H

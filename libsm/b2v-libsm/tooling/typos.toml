@@ -1,0 +1,7 @@
+[default]
+extend-ignore-words-re = [
+    "^[a-zA-Z]{1,3}$", # ignore words under 3 chars
+]
+
+[default.extend-words]
+UPER = "UPER"

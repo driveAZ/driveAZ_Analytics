@@ -1,0 +1,63 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Debug createPSMBSM",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/createPSMBSM",
+            "args": [],  // Add any program-specific arguments here
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug createTIM",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/createTIM",
+            "args": [],  // Add any program-specific arguments here
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug decodeToJER.c",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/decodeToJER",
+            "args": ["-i","001F808100000060D693A403AD27480000001650A01B80017E4A0F4D19777358827C8419F2EFBFC30F4D01C1C4CD8B325CD81812C00000100086EC00333328906B7FCFAA8000028FEBE541ABAF3E8830E9DC9FA20C2833EFDDBB0A0E187CA0DDBD074DFB362C4125073C3E79A0D997A20E9A32ED41D3975C7AF2F2E68396FD9B010181A120"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

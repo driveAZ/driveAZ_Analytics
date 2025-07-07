@@ -1,0 +1,15 @@
+test/.cpputestBuild
+test/testBinary*
+test/*.xml
+*.o
+*.a
+*.so
+Output
+*.local
+build
+.gdb_history
+*.uncrustify
+.DS_Store
+.idea
+cmake-build-*
+*.patch

@@ -1,0 +1,24 @@
+## every script in this dir is a git hook.
+
+## PREREQUISITES:
+##    Windows: Git for Windows must be installed (https://gitforwindows.org/) The Git-bash app makes all of this magic happen.
+## Linux, Mac: Git must be installed
+##        All: Bash version > 4.0 (if lint.sh is called)
+##
+## INSTALLATION:
+## Run addGitHooks.sh in b2v-project
+##
+## MANUAL INSTALLATION:
+## Symlink every script to .git/hooks
+##     Windows:   mklink .git\hooks\$hook ..\..\tooling\hooks\$hook
+##     Linux, Mac:   ln -s ../../tooling/hooks/$hook .git/hooks/$hook
+##
+## TO BYPASS:
+##     git commit --no-verify
+##
+## References:
+## https://codeinthehole.com/tips/tips-for-using-a-git-pre-commit-hook/
+## https://www.viget.com/articles/two-ways-to-share-git-hooks-with-your-team/
+## https://jondowdle.com/2015/02/block-merge-conflicts-in-commits/
+## https://www.atlassian.com/git/tutorials/git-hooks
+## ------------------------------------------------------------------------------------------
