@@ -1,3 +1,36 @@
+
+
+###  Add This Section to Your `README.md`
+
+````markdown
+##  Python Environment Setup (Optional)
+
+If you're using Python tools alongside `libsm` binaries, it's recommended to use a virtual environment.
+
+### 1. Create and activate a virtual environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+````
+
+### 2. Install Python dependencies
+
+
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 3. Deactivate when done
+
+```bash
+deactivate
+```
+
+
 # b2v-libsm
 
 This repository builds the `libsm` binary tools for encoding and decoding SAE J2735 messages (e.g., TIM, BSM, PSM) using C++.
