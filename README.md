@@ -81,8 +81,7 @@ Typical output binaries include:
 
 * `createTIM`
 * `decodeToJER`
-* `encodeFromJSON`
-* `decodeFromUPER`
+* `bsmPartII`
 
 ---
 
