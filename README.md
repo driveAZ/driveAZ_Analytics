@@ -1,4 +1,46 @@
 
+# DriveAZ Analytics Repository
+
+This repository contains Vehicle-to-Everything (V2X) data analysis tools and datasets for transportation safety research.
+
+## Repository Structure
+
+- **PSM_analysis/**: Complete PSM (Personal Safety Message) data package with documentation
+  - Contains JSONL data files from two intersection deployments
+  - Includes comprehensive documentation (README, DCAT metadata, data management plan, data dictionary)
+  - Self-contained and distributable as an independent dataset
+- **BSM_analysis/**: Complete BSM (Basic Safety Message) data package with documentation
+  - Contains Parquet data files from connected vehicles
+  - Includes analysis notebook and comprehensive documentation
+  - Self-contained and distributable as an independent dataset
+- **notebooks/**: Jupyter notebooks for data exploration and analysis  
+- **libsm/**: SAE J2735 message encoding/decoding tools
+
+## Data Packages
+
+### PSM Data Package
+
+The `PSM_analysis/` folder contains a complete, documented dataset of Personal Safety Messages captured from two intersections. See `PSM_analysis/README.md` for full documentation including:
+
+- Data structure and loading examples
+- Geospatial and temporal information
+- Privacy and ethics statement  
+- Comprehensive data dictionary
+- DCAT-US compliant metadata
+
+### BSM Data Package
+
+The `BSM_analysis/` folder contains Basic Safety Message data from connected vehicles in Parquet format. See `BSM_analysis/README.md` for full documentation including:
+
+- Parquet data loading and analysis workflows
+- BSM decoding using libsm tools
+- Vehicle trajectory analysis examples
+- Comprehensive documentation and metadata  
+- Comprehensive data dictionary
+- DCAT-US compliant metadata
+
+## Development Environment Setup
+
 ### 1. Create and activate a virtual environment
 
 ```bash
@@ -12,35 +54,30 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
----
-
 ### 3. Deactivate when done
 
 ```bash
 deactivate
 ```
 
+## SAE J2735 Message Tools (libsm)
 
-# b2v-libsm
+This repository includes the `libsm` binary tools for encoding and decoding SAE J2735 messages (e.g., TIM, BSM, PSM) using C++.
 
-This repository builds the `libsm` binary tools for encoding and decoding SAE J2735 messages (e.g., TIM, BSM, PSM) using C++.
-
-##  Requirements
+### Requirements
 
 - Ubuntu 20.04 or later
 - CMake ≥ 3.21
 - GCC (C/C++) ≥ 9.4
 
-###  Dependencies
+### Dependencies
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential cmake g++ libboost-all-dev
-````
+```
 
----
-
-##  Build Instructions
+### Build Instructions
 
 1. **Clone or download the repository** and move to the `b2v-libsm` directory:
 
@@ -67,9 +104,7 @@ cmake .. -DLIBSM_TESTS=OFF
 make -j$(nproc)
 ```
 
----
-
-##  Output
+### Output
 
 After successful compilation, the binaries will be located at:
 
@@ -83,9 +118,7 @@ Typical output binaries include:
 * `decodeToJER`
 * `bsmPartII`
 
----
-
-##  Verify
+### Verify
 
 To test a binary:
 
@@ -95,9 +128,7 @@ To test a binary:
 
 Replace `<hex_input_file>` with your input file or use echo-piped hex input.
 
----
-
-##  Notes
+### Notes
 
 * If you want to build the test suite (`cpputest`), ensure CMake version ≥ 3.5 and set:
 
@@ -107,7 +138,6 @@ cmake .. -DLIBSM_TESTS=ON
 
 * You can copy the binaries into your system path or Docker container after building.
 
----
+## License
 
-##  License
 
