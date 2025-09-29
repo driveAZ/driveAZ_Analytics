@@ -1,0 +1,139 @@
+# PSM Data Package - DriveAZ Analytics
+
+## Overview
+
+This folder contains Personal Safety Message (PSM) data captured from two intersections and comprehensive documentation to make this a distributable data package. PSMs are Vehicle-to-Everything (V2X) messages defined in SAE J2735 that broadcast safety-critical information from vulnerable road users (pedestrians, cyclists, etc.) to nearby vehicles.
+
+**Data Collection**: PSM packets were captured passively at a server receiving UDP transmissions from two intersection deployments. This represents real-world V2X safety messaging in an operational environment.
+
+**Repository Relationship**: This PSM_analysis folder within the larger driveAZ_Analytics repository serves as a self-contained data package. The parent repository contains additional analysis tools and related V2X datasets, while this folder can be distributed independently as a documented dataset.
+
+## Data Contents and Structure
+
+The PSM data is stored in JSONL format (JSON Lines - one JSON object per line):
+
+- `06_27_25_080201_to_090202.jsonl` - Morning time period data (08:02-09:02 UTC)
+- `06_27_2025_090202_to_100202.jsonl` - Mid-morning time period data (09:02-10:02 UTC)
+- `06_27_2025_120140_to_130140.jsonl` - Afternoon time period data (12:01-13:01 UTC)
+
+### Quick Data Loading Examples
+
+**Python**:
+```python
+import json
+with open('06_27_2025_090202_to_100202.jsonl', 'r') as f:
+    for line in f:
+        psm_record = json.loads(line)
+        print(psm_record['timestamp'], psm_record['source_ip'])
+```
+
+**Command line (jq)**:
+```bash
+# Extract timestamps and source IPs
+head -10 06_27_2025_090202_to_100202.jsonl | jq -r '.timestamp + " " + .source_ip'
+
+# Extract PSM position data (latitude)
+jq -r '.packet_data.MessageFrame[1].value[0].PersonalSafetyMessage[] | select(.position) | .position[] | select(.lat) | .lat' 06_27_2025_090202_to_100202.jsonl
+```
+
+### Example PSM Record
+
+```json
+{
+  "timestamp": "2025-06-27T09:02:03.264666",
+  "source_ip": "10.227.92.40",
+  "packet_data": {
+    "MessageFrame": [
+      {"messageId": "32"},
+      {
+        "value": [{
+          "PersonalSafetyMessage": [
+            {"basicType": "1"},
+            {"secMark": "1800"},
+            {"msgCnt": "1"},
+            {"id": "41 16 72 6A"},
+            {"position": [
+              {"lat": "333774223"},
+              {"long": "-1121674652"},
+              {"elevation": "-4096"}
+            ]},
+            {"speed": "8191"},
+            {"heading": "28800"}
+          ]
+        }]
+      }
+    ]
+  },
+  "messageId": "32"
+}
+```
+
+## File Inventory
+
+- **README.md**: This comprehensive documentation file
+- **dcat_metadata.json**: DCAT-US v1.1 compliant metadata for data discovery and cataloging
+- **dmp.md**: Data Management Plan outlining data handling, privacy, and preservation practices
+- **dictionary/data_dictionary.csv**: Detailed field-by-field documentation of all data elements
+- ***.jsonl**: Timestamped PSM data files in JSON Lines format
+- **analysis.ipynb**: Jupyter notebook with data exploration examples
+
+## Geospatial Information
+
+**Coordinate Reference System**: WGS84 (EPSG:4326)
+
+**Coordinate Format**: Latitude and longitude are encoded in J2735 format as 1/10th microdegrees and stored as integer strings. Convert to decimal degrees by dividing by 10,000,000.
+
+**Coverage Area**: Two intersections in Arizona:
+- Intersection A (source IP 10.227.92.40): ~33.377°N, 112.168°W
+- Intersection B (source IP 10.225.242.94): ~33.568°N, 112.100°W
+
+**Map-Matching Considerations**: PSM positions represent user device locations with varying accuracy. Position accuracy fields are included but often report maximum uncertainty values (255m). Consider applying smoothing or validation when using for precise geospatial analysis.
+
+## Time Information
+
+**Time Zone**: All timestamps are in UTC (ISO 8601 format: YYYY-MM-DDTHH:MM:SS.ffffff)
+
+**Collection Period**: June 27, 2025, covering morning (08:02-10:02) and afternoon (12:01-13:01) periods
+
+**Clock Skew**: Timestamps reflect server receipt time. Minor variations (sub-second) may exist between actual message generation and server logging due to network latency and processing delays.
+
+## Privacy and PII Statement
+
+This dataset contains **no direct personally identifiable information (PII)**. Device identifiers present in the data are pseudonymous hex-encoded values that do not directly identify individuals or specific devices.
+
+**Identifiers**: The `id` field contains hex-encoded identifiers (e.g., "41 16 72 6A") that appear to be hashed or pseudonymized device identifiers. These should be treated as pseudonymous data.
+
+**Location Privacy**: While precise coordinates are included, they represent public road locations and are aggregated across multiple users and time periods, reducing individual tracking risk.
+
+## How to Regenerate Data Dictionary
+
+The CSV data dictionary (`dictionary/data_dictionary.csv`) is automatically generated by sampling the JSONL files to identify all fields, infer types, and determine value ranges. To regenerate:
+
+1. The dictionary reflects the actual schema found in the data files
+2. Field types and ranges are inferred from sample data analysis  
+3. Required/optional status is determined by field presence frequency
+4. Update the dictionary if data schema changes or additional files are added
+
+The current dictionary was generated by analyzing 1,500+ records across all JSONL files to ensure comprehensive field coverage.
+
+## Why Validate This Data?
+
+Data validation provides several key benefits for V2X research and development:
+
+• **Structural Integrity**: Ensures all records conform to expected J2735 PSM schema and can be reliably parsed
+• **Consistency Checks**: Validates that coordinate ranges, timestamps, and message counters are within realistic bounds
+• **Range Validation**: Confirms latitude/longitude values fall within expected geographic areas and speed/heading values are physically plausible
+• **Documentation Quality**: Maintains accurate field-level documentation that evolves with the data
+• **Reproducible Research**: Enables confident reuse of validated datasets across different analysis workflows
+
+## Citation
+
+<FILL ME: Add appropriate citation format when publishing>
+
+## License
+
+<FILL ME: Specify license terms>
+
+---
+
+*For questions about this dataset or analysis tools, see contact information in `dcat_metadata.json`.*
