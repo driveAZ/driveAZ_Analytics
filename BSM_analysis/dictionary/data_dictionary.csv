@@ -1,0 +1,7 @@
+Variable,Type,Description,Units/Domain,Example,Required (Y/N),Allowed Values/Range,Notes
+mf_bytes,object,Raw BSM message bytes for decoding,Binary data (bytes),<bytes length=512>,Y,Binary message payload,512-byte BSM message frame; used by decodeToJER binary
+TimeStamp,float64,Unix timestamp of BSM message,Seconds since epoch,1756415644.563512,Y,Valid Unix timestamps,High precision timestamp; convert with datetime.fromtimestamp()
+MessageType,object,SAE J2735 message type identifier,String enumeration,BasicSafetyMessage,Y,BasicSafetyMessage,Identifies this as a BSM per SAE J2735 standard
+Geohash,object,Geohash spatial index for location,Base32 geohash string,wx4dyyrk,Y,Valid geohash codes,Spatial indexing for efficient geographic queries
+Latitude,float64,Vehicle latitude position,Decimal degrees WGS84,39.8934872,Y,-90.0 to 90.0,Geographic coordinate latitude in decimal degrees
+Longitude,float64,Vehicle longitude position,Decimal degrees WGS84,116.3223736,Y,-180.0 to 180.0,Geographic coordinate longitude in decimal degrees

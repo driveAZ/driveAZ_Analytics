@@ -1,0 +1,57 @@
+{{
+
+  "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",  "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
+
+  "@type": "dcat:Dataset",  "@type": "dcat:Dataset",
+
+  "title": "BSM Vehicle Data in Parquet Format - Beijing Area",  "title": "BSM Vehicle Data in Parquet Format - Phoenix Area",
+
+  "description": "Basic Safety Messages (BSM) from connected vehicles in Beijing area stored in Apache Parquet format; includes vehicle positions, timestamps, geohash indexing, and raw message bytes for decoding.",  "description": "Basic Safety Messages (BSM) from connected vehicles in Phoenix area stored in Apache Parquet format; includes vehicle positions, timestamps, geohash indexing, and raw message bytes for decoding.",
+
+  "keyword": ["V2X","BSM","Connected Vehicles","Transportation Safety","Vehicle Trajectory","Parquet","Beijing"],  "keyword": ["V2X","BSM","Connected Vehicles","Transportation Safety","Vehicle Trajectory","Parquet","Phoenix"],
+
+  "contactPoint": {"fn": "<FILL ME: Your Name>", "hasEmail": "mailto:<FILL ME: your.email@domain.com>"},  "contactPoint": {"fn": "<FILL ME: Your Name>", "hasEmail": "mailto:<FILL ME: your.email@domain.com>"},
+
+  "publisher": {"name": "<FILL ME: Your Organization>"},  "publisher": {"name": "<FILL ME: Your Organization>"},
+
+  "identifier": "<FILL ME: stable id or DOI if available>",  "identifier": "<FILL ME: stable id or DOI if available>",
+
+  "issued": "<FILL ME: YYYY-MM-DD>",  "issued": "<FILL ME: YYYY-MM-DD>",
+
+  "modified": "2025-09-29",  "modified": "2025-09-29",
+
+  "accrualPeriodicity": "irregular",  "accrualPeriodicity": "irregular",
+
+  "temporal": {"startDate": "2025-08-28T14:14:04Z", "endDate": "2025-08-28T14:14:04Z"},  "temporal": {"startDate": "2025-08-28T14:14:04Z", "endDate": "2025-08-28T14:14:04Z"},
+
+  "spatial": {  "spatial": {
+
+    "description": "Beijing area, China - connected vehicle data collection",    "description": "Phoenix area, Arizona - connected vehicle data collection",
+
+    "geometry": {    "geometry": {
+
+      "type": "FeatureCollection",      "type": "FeatureCollection",
+
+      "features": [      "features": [
+
+        {"type": "Feature","properties":{"id": "BEIJING-AREA"},"geometry":{"type": "Point","coordinates": [116.3223736, 39.8934872]}}        {"type": "Feature","properties":{"id": "PHOENIX-AREA"},"geometry":{"type": "Point","coordinates": [-112.074036, 33.448376]}}
+
+      ]      ]
+
+    }    }
+
+  },  },
+
+  "distribution": [{  "distribution": [{
+
+    "@type": "dcat:Distribution",    "@type": "dcat:Distribution",
+
+    "downloadURL": "<FILL ME: GitHub URL or file path to parquet directory>",    "downloadURL": "<FILL ME: GitHub URL or file path to parquet directory>",
+
+    "mediaType": "application/parquet",    "mediaType": "application/parquet",
+
+    "describedBy": "dictionary/data_dictionary.csv"    "describedBy": "dictionary/data_dictionary.csv"
+
+  }]  }]
+
+}}
