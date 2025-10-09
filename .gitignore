@@ -19,6 +19,9 @@ logs/
 # Jupyter Notebook Checkpoints
 .ipynb_checkpoints/
 
+# Local notebooks directory (keep notebooks out of the repo)
+notebooks/
+
 # VS Code
 .vscode/
 

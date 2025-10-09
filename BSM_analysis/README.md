@@ -2,141 +2,113 @@
 
 ## Overview
 
-This folder contains Basic Safety Message (BSM) data analysis tools and documentation to make this a distributable data package. BSMs are Vehicle-to-Everything (V2X) messages defined in SAE J2735 that broadcast safety-critical information from connected vehicles including position, speed, heading, and vehicle status.
+This folder contains Basic Safety Message (BSM) analysis assets and documentation. BSMs are SAE J2735 V2X messages carrying vehicle state such as position and heading. Data files are provided in Parquet for efficient analytics, with a companion notebook to load, filter, optionally decode, and visualize trajectories.
 
-**Data Collection**: BSM packets captured from connected vehicles and stored in Parquet format for efficient analysis. BSMs represent the most common V2X message type, broadcasting vehicle state information at 10Hz frequency.
+Notes on tiles/labels: if you view points that fall in China (for example geohash `wx4dyyrk`), OpenStreetMap labels will appear in Chinese. Use English-oriented tiles (see Visualization) or filter to your Phoenix AOI.
 
-**Repository Relationship**: This BSM_analysis folder within the larger driveAZ_Analytics repository serves as a self-contained data package. The parent repository contains additional analysis tools and related V2X datasets, while this folder can be distributed independently as a documented dataset.
+## Contents
 
-## Data Contents and Structure
+- `parquet/` – Parquet files with BSM records
+- `BSM_Parquet.ipynb` – Notebook: load, filter, optionally decode, and visualize
+- `dictionary/data_dictionary.csv` – Field-by-field documentation for this package
+- `dcat_metadata.json` – DCAT-US v1.1 metadata
+- `dmp.md` – Data Management Plan
 
-The BSM data is stored in Parquet format for efficient columnar processing:
+See also the project-level dictionaries in `project-docs/data-dictionaries/` for a canonical, submission-ready version.
 
-- `parquet/` directory contains BSM data files in Apache Parquet format
-- `BSM_Parquet.ipynb` - Jupyter notebook demonstrating data loading, decoding, and visualization
-- Analysis workflow includes geohash-based filtering, BSM decoding using libsm tools, and movement visualization
+## Actual Parquet schema (current files)
 
-### Quick Data Loading Examples
+The included Parquet files have six columns:
 
-**Python (Pandas)**:
-```python
-import pandas as pd
-import glob
+- `mf_bytes` (bytes) – Raw message frame bytes
+- `TimeStamp` (float) – Unix epoch seconds (UTC)
+- `MessageType` (string) – Message name (e.g., BasicSafetyMessage)
+- `Geohash` (string) – Spatial index for quick filtering/grouping
+- `Latitude` (float) – Decimal degrees (WGS84)
+- `Longitude` (float) – Decimal degrees (WGS84)
 
-# Load all Parquet files
-parquet_files = glob.glob("parquet/*.parquet")
-df = pd.concat([pd.read_parquet(f) for f in parquet_files], ignore_index=True)
-print(df.info())
+Your downstream decoding can expand these into BSM coreData fields if needed.
+
+## Quickstart
+
+1) Create/activate a Python 3.12 virtual environment and install deps:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-**Python (PyArrow)**:
-```python
-import pyarrow.parquet as pq
+2) Open and run `BSM_Parquet.ipynb`:
 
-# Read single file
-table = pq.read_table("parquet/bsm_data.parquet")
-df = table.to_pandas()
+- It will safely load all files under `parquet/`, show schema and samples
+- You can filter by geohash (e.g., Phoenix AOI) and generate maps/animations
+
+## Visualization tips (English tiles and Phoenix AOI)
+
+Folium maps with English labels:
+
+```python
+import folium
+m = folium.Map(location=[lat, lon], zoom_start=15, tiles="CartoDB positron")
 ```
 
-### Expected BSM Data Structure
+Plotly mapbox (no token) using Carto tiles:
 
-BSM Parquet files typically contain:
-- **timestamp**: Message receipt timestamp (UTC)
-- **geohash**: Spatial indexing for efficient geographic queries
-- **vehicle_id**: Pseudonymized vehicle identifier
-- **latitude/longitude**: Vehicle position (WGS84)
-- **speed**: Vehicle speed (m/s)
-- **heading**: Vehicle heading (degrees)
-- **elevation**: Vehicle elevation (meters)
-- **bsm_payload**: Raw BSM message payload (hex-encoded)
-- **message_count**: BSM sequence counter
-- **transmission_state**: Vehicle transmission state
+```python
+fig.update_layout(mapbox_style="carto-positron")
+```
 
-## File Inventory
+Filter to Phoenix bounding box (example):
 
-- **README.md**: This comprehensive documentation file
-- **dcat_metadata.json**: DCAT-US v1.1 compliant metadata for data discovery and cataloging
-- **dmp.md**: Data Management Plan outlining data handling, privacy, and preservation practices
-- **dictionary/data_dictionary.csv**: Detailed field-by-field documentation of all data elements
-- **BSM_Parquet.ipynb**: Analysis notebook with data processing workflows
-- **parquet/**: Directory containing BSM data files in Parquet format
+```python
+lat_min, lat_max = 33.2, 33.8
+lon_min, lon_max = -112.3, -111.8
+df_phx = df[(df.Latitude.between(lat_min, lat_max)) & (df.Longitude.between(lon_min, lon_max))]
+```
 
-## Geospatial Information
+## Optional decoding with libsm
 
-**Coordinate Reference System**: WGS84 (EPSG:4326)
+If you need decoded BSM fields from `mf_bytes`, build the decoder once:
 
-**Coordinate Format**: Decimal degrees for latitude and longitude fields
+```bash
+cd libsm/b2v-libsm
+mkdir -p build && cd build
+cmake .. && make -j$(nproc)
+```
 
-**Spatial Indexing**: Geohash encoding for efficient spatial queries and geographic grouping
+The notebook expects the binary at `libsm/b2v-libsm/build/bin/decodeToJER`. Decoding is called per-row with a short timeout; ensure your focus set is small before bulk decode.
 
-**Coverage Area**: <FILL ME: Specify geographic coverage based on actual data>
+## Data dictionary
 
-**Map-Matching Considerations**: BSM positions represent real-time vehicle GPS locations with typical automotive GPS accuracy (3-5 meters). Consider temporal smoothing for trajectory analysis.
+- Package dictionary: `dictionary/data_dictionary.csv`
+- Canonical (project-level): `project-docs/data-dictionaries/data_dictionary_bsm.csv`
 
-## Time Information
+The dictionary reflects the observed six columns above and documents types, examples, and QA rules. Update it if you add derived/decoded fields.
 
-**Time Zone**: All timestamps are in UTC (ISO 8601 format)
+## Validation checklist
 
-**Collection Period**: <FILL ME: Specify actual collection timeframe>
+- Latitude in [-90, 90], Longitude in [-180, 180]
+- TimeStamp parses to reasonable UTC times; order consistent within a vehicle/geohash
+- Geohash matches expected base32 and length
+- `mf_bytes` present and non-empty for decodable rows
 
-**Frequency**: BSMs are typically broadcast at 10Hz (100ms intervals) when vehicles are in motion
+## Time and coverage
 
-**Clock Synchronization**: Timestamps may reflect either vehicle broadcast time or server receipt time depending on data collection methodology.
+- Time zone: UTC
+- Example capture times: see notebook output and Parquet filenames
+- Coverage: Records include Beijing sample geohash (`wx4dyyrk`) and Phoenix-focused analysis; filter to your AOI as needed
 
-## Privacy and PII Statement
+## Privacy
 
-This dataset contains **no direct personally identifiable information (PII)**. Vehicle identifiers present in the data are pseudonymous values that do not directly identify specific vehicles or owners.
+No direct PII is included. Points represent public-road GPS fixes. Use spatial/temporal aggregation when sharing trajectories.
 
-**Vehicle Identifiers**: BSM vehicle IDs are pseudonymized or hashed values that cannot be linked back to actual vehicle registrations or owners.
+## Licenses and citation
 
-**Location Privacy**: While precise vehicle coordinates are included, they represent public road locations. Consider temporal and spatial aggregation for enhanced privacy when publishing or sharing.
-
-**Trajectory Tracking**: Individual vehicle movements can be tracked within the dataset timeframe. Appropriate privacy measures should be applied for public data sharing.
-
-## BSM Decoding Workflow
-
-The analysis workflow leverages the `libsm` C library for BSM message decoding:
-
-1. **Data Loading**: Parquet files are loaded and concatenated using pandas
-2. **Spatial Filtering**: Geohash-based filtering for area-of-interest analysis
-3. **BSM Decoding**: Raw BSM payloads decoded using `libsm/b2v-libsm/build/bin/decodeToJER`
-4. **Data Extraction**: Structured data extracted from decoded JSON-ER format
-5. **Analysis & Visualization**: Vehicle trajectories and patterns analyzed using Plotly
-
-## How to Regenerate Data Dictionary
-
-The CSV data dictionary (`dictionary/data_dictionary.csv`) should be generated by sampling the actual Parquet files to identify all fields, infer types, and determine value ranges. To regenerate:
-
-1. Load sample Parquet files using pandas or PyArrow
-2. Analyze schema and extract field metadata
-3. Compute value ranges and examples from actual data
-4. Update required/optional status based on field presence frequency
-5. Include BSM-specific field documentation from SAE J2735 standard
-
-## Why Validate This Data?
-
-Data validation provides several key benefits for V2X research and development:
-
-• **Schema Consistency**: Ensures all Parquet files follow consistent column structure and data types
-• **Coordinate Validation**: Confirms latitude/longitude values are within reasonable geographic bounds
-• **Temporal Integrity**: Validates timestamp ordering and frequency patterns consistent with 10Hz BSM broadcasting
-• **Message Completeness**: Verifies BSM payload integrity and successful decoding rates
-• **Reproducible Analysis**: Enables confident reuse of validated datasets across different research workflows
-
-## Dependencies
-
-**Python Packages**: pandas, matplotlib, seaborn, pyarrow, plotly, numpy
-**External Tools**: libsm C library with decodeToJER binary for BSM message decoding
-**Build Requirements**: See `libsm/b2v-libsm/README.md` for compilation instructions
-
-## Citation
-
-<FILL ME: Add appropriate citation format when publishing>
-
-## License
-
-<FILL ME: Specify license terms>
+- Data: see `project-docs/LICENSE-data.txt` (CC BY 4.0)
+- Code/docs: see repository `LICENSE` (Apache-2.0)
+- Citation: see `project-docs/metadata/dcat_dataset.json` and dataset-level `dcat_metadata.json` for publisher/contact
 
 ---
 
-*For questions about this dataset or analysis tools, see contact information in `dcat_metadata.json`.*
+For questions, see contacts in `dcat_metadata.json`.

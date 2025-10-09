@@ -1,7 +1,7 @@
 Variable,Type,Description,Units/Domain,Example,Required (Y/N),Allowed Values/Range,Notes
-mf_bytes,object,Raw BSM message bytes for decoding,Binary data (bytes),<bytes length=512>,Y,Binary message payload,512-byte BSM message frame; used by decodeToJER binary
-TimeStamp,float64,Unix timestamp of BSM message,Seconds since epoch,1756415644.563512,Y,Valid Unix timestamps,High precision timestamp; convert with datetime.fromtimestamp()
-MessageType,object,SAE J2735 message type identifier,String enumeration,BasicSafetyMessage,Y,BasicSafetyMessage,Identifies this as a BSM per SAE J2735 standard
-Geohash,object,Geohash spatial index for location,Base32 geohash string,wx4dyyrk,Y,Valid geohash codes,Spatial indexing for efficient geographic queries
-Latitude,float64,Vehicle latitude position,Decimal degrees WGS84,39.8934872,Y,-90.0 to 90.0,Geographic coordinate latitude in decimal degrees
-Longitude,float64,Vehicle longitude position,Decimal degrees WGS84,116.3223736,Y,-180.0 to 180.0,Geographic coordinate longitude in decimal degrees
+mf_bytes,binary,Raw BSM message bytes for decoding,raw bytes,"b""<...>""",Y,>0 length,Auto-generated from notebook on 2025-10-09T17:43:40.204456+00:00
+TimeStamp,float,Unix timestamp of BSM message,epoch seconds (UTC),1755720883.157014,Y,Valid Unix timestamps,Auto-generated from notebook on 2025-10-09T17:43:40.204776+00:00
+MessageType,string,SAE J2735 message type identifier,enum,BasicSafetyMessage,Y,BasicSafetyMessage,Auto-generated from notebook on 2025-10-09T17:43:40.205969+00:00
+Geohash,string,Geohash spatial index for location,Base32 geohash string,9t9p75yd,Y,Valid geohash codes,Auto-generated from notebook on 2025-10-09T17:43:40.207360+00:00
+Latitude,float,Vehicle latitude position,Decimal degrees (WGS84),32.2329212,Y,"[-90, 90]",Auto-generated from notebook on 2025-10-09T17:43:40.207715+00:00
+Longitude,float,Vehicle longitude position,Decimal degrees (WGS84),-110.9528807,Y,"[-180, 180]",Auto-generated from notebook on 2025-10-09T17:43:40.208037+00:00

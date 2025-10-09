@@ -41,11 +41,13 @@ The `BSM_analysis/` folder contains Basic Safety Message data from connected veh
 
 ## Development Environment Setup
 
+Recommended: Python 3.12
+
 ### 1. Create and activate a virtual environment
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python -m venv .venv
+source .venv/bin/activate
 ```
 
 ### 2. Install Python dependencies
@@ -54,11 +56,23 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+If you encounter install issues, upgrade packaging tools:
+
+```bash
+python -m pip install --upgrade pip setuptools wheel
+```
+
 ### 3. Deactivate when done
 
 ```bash
 deactivate
 ```
+
+### Notebook tips
+
+- If a notebook errors with "ModuleNotFoundError", install the package into the active kernel and re-run the imports cell.
+- For Folium maps with English labels, use tiles="CartoDB positron".
+- For Plotly mapbox without a token, use `mapbox_style="carto-positron"`.
 
 ## SAE J2735 Message Tools (libsm)
 
@@ -82,7 +96,7 @@ sudo apt install -y build-essential cmake g++ libboost-all-dev
 1. **Clone or download the repository** and move to the `b2v-libsm` directory:
 
 ```bash
-cd ~/driveAZ_Analytics/libsm/b2v-libsm
+cd libsm/b2v-libsm
 ```
 
 2. **Create and enter the build directory**:
@@ -139,5 +153,8 @@ cmake .. -DLIBSM_TESTS=ON
 * You can copy the binaries into your system path or Docker container after building.
 
 ## License
+
+- Code and notebooks in this repository are licensed under Apache-2.0 (see `LICENSE`).
+- Data packages (in `BSM_analysis/` and `PSM_analysis/`) include their own documentation and may specify data-license terms within their folders.
 
 

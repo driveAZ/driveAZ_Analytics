@@ -4,10 +4,10 @@
   "title": "PSM Packets from Two Arizona Intersections",
   "description": "Personal Safety Messages (PSM) captured at a server from two intersections via UDP; JSONL format with WGS84 coordinates and UTC timestamps.",
   "keyword": ["V2X","PSM","Connected Vehicles","Transportation Safety","UDP","Intersection"],
-  "contactPoint": {"fn": "<FILL ME: Your Name>", "hasEmail": "mailto:<FILL ME: your.email@domain.com>"},
-  "publisher": {"name": "<FILL ME: Your Organization>"},
-  "identifier": "<FILL ME: stable id or DOI if available>",
-  "issued": "<FILL ME: YYYY-MM-DD>",
+  "contactPoint": {"fn": "Simon Ramos, P.E.", "hasEmail": "mailto:simon.ramos@phoenix.gov"},
+  "publisher": {"name": "City of Phoenix Transportation Engineering"},
+  "identifier": "doi:10.0000/placeholder-psm-phx-intersections",
+  "issued": "2025-06-27",
   "modified": "2025-09-29",
   "accrualPeriodicity": "irregular",
   "temporal": {"startDate": "2025-06-27T08:02:01Z", "endDate": "2025-06-27T13:01:40Z"},
@@ -23,8 +23,9 @@
   },
   "distribution": [{
     "@type": "dcat:Distribution",
-    "downloadURL": "<FILL ME: GitHub URL or file path>",
+    "downloadURL": "<REPLACE WITH REPO RAW URL OR DATA PORTAL LOCATION>/PSM_analysis/",
     "mediaType": "application/x-ndjson",
-    "describedBy": "dictionary/data_dictionary.csv"
+    "describedBy": "dictionary/data_dictionary_ntl.csv",
+    "format": "ndjson"
   }]
 }
