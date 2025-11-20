@@ -9,7 +9,7 @@ This folder contains Basic Safety Message (BSM) analysis assets and documentatio
 
 - `parquet/` – Parquet files with BSM records
 - `BSM_Parquet.ipynb` – Notebook: load, filter, optionally decode, and visualize
-- `dictionary/data_dictionary.csv` – Field-by-field documentation for this package
+- `dictionary/data_dictionary_bsm.csv` – Field-by-field documentation for this package
 - `dcat_metadata.json` – DCAT-US v1.1 metadata
 
 
