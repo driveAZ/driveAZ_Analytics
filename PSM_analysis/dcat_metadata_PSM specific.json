@@ -1,0 +1,106 @@
+{
+  "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
+  "@type": "dcat:Dataset",
+  "accessLevel": "public",
+  "title": "PSM Packets from Two Arizona Intersections",
+  "description": "Personal Safety Messages (PSM) captured at a server from two intersections via UDP; JSON Lines (NDJSON) format with WGS84 coordinates, UTC timestamps, and SAE J2735 PSM fields.",
+  "keyword": [
+    "V2X",
+    "PSM",
+    "Connected Vehicles",
+    "Transportation Safety",
+    "UDP",
+    "Intersection",
+    "Phoenix",
+    "Arizona"
+  ],
+  "contactPoint": {
+    "fn": "Simon Ramos, P.E.",
+    "hasEmail": "mailto:simon.ramos@phoenix.gov"
+  },
+  "publisher": {
+    "name": "City of Phoenix Transportation Engineering"
+  },
+  "identifier": "doi:10.0000/placeholder-psm-phx-intersections",
+  "issued": "2025-06-27",
+  "modified": "2025-09-29",
+  "accrualPeriodicity": "irregular",
+  "temporal": {
+    "startDate": "2025-06-27T08:02:01Z",
+    "endDate": "2025-06-27T13:01:40Z"
+  },
+  "spatial": {
+    "description": "Two intersections (INT-A, INT-B) in Arizona, WGS84",
+    "geometry": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "id": "INT-A",
+            "source_ip": "10.227.92.40"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -112.168238,
+              33.377456
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "id": "INT-B",
+            "source_ip": "10.225.242.94"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -112.099601,
+              33.567642
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "downloadURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/psm?type=folder&resourceId=11e41014-c641-11f0-b120-90e2ba675364",
+      "mediaType": "application/x-ndjson",
+      "format": "NDJSON",
+      "describedBy": "https://github.com/driveAZ/driveAZ_Analytics/blob/main/PSM_analysis/dictionary/data_dictionary_psm.csv",
+      "describedByType": "text/csv"
+    }
+  ],
+  "landingPage": "https://github.com/driveAZ/driveAZ_Analytics/tree/main/PSM_analysis",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "rights": "Sample dataset for demonstration; not for operational use.",
+  "language": [
+    "en"
+  ],
+  "theme": [
+    "transportation"
+  ],
+  "bureauCode": [
+    "000:00"
+  ],
+  "programCode": [
+    "000:000"
+  ],
+  "isPartOf": "driveAZ_Analytics",
+  "conformsTo": "SAE J2735 (PSM elements)",
+  "dataQuality": true,
+  "isReferencedBy": [
+    "swh:1:dir:85e8288e1ed24070dc78ffe66598437dcf1865aa",  
+    "swh:1:dir:fa081b6367637313b8a26f34ee833bd2140b6ddc"   
+  ],
+  "references": [
+    "https://archive.softwareheritage.org/swh:1:dir:85e8288e1ed24070dc78ffe66598437dcf1865aa/",
+    "https://archive.softwareheritage.org/swh:1:dir:fa081b6367637313b8a26f34ee833bd2140b6ddc/",
+    "https://github.com/driveAZ/driveAZ_Analytics",
+    "https://github.com/driveAZ/driveAZ_ETX"
+  ]
+}
