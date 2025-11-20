@@ -97,7 +97,7 @@ No direct PII is included. Points represent public-road GPS fixes. Use spatial/t
 
 ## Licenses and citation
 
-- Data: see `project-docs/LICENSE-data.txt` (CC BY 4.0)
+- Data: see `Docs/LICENSE-data.txt` (CC BY 4.0)
 - Code/docs: see repository `LICENSE` (Apache-2.0)
 ---
 
