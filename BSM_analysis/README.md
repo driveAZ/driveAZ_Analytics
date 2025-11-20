@@ -3,8 +3,7 @@
 ## Overview
 
 This folder contains Basic Safety Message (BSM) analysis assets and documentation. BSMs are SAE J2735 V2X messages carrying vehicle state such as position and heading. Data files are provided in Parquet for efficient analytics, with a companion notebook to load, filter, optionally decode, and visualize trajectories.
-
-Notes on tiles/labels: if you view points that fall in China (for example geohash `wx4dyyrk`), OpenStreetMap labels will appear in Chinese. Use English-oriented tiles (see Visualization) or filter to your Phoenix AOI.
+.
 
 ## Contents
 
@@ -12,9 +11,8 @@ Notes on tiles/labels: if you view points that fall in China (for example geohas
 - `BSM_Parquet.ipynb` – Notebook: load, filter, optionally decode, and visualize
 - `dictionary/data_dictionary.csv` – Field-by-field documentation for this package
 - `dcat_metadata.json` – DCAT-US v1.1 metadata
-- `dmp.md` – Data Management Plan
 
-See also the project-level dictionaries in `project-docs/data-dictionaries/` for a canonical, submission-ready version.
+
 
 ## Actual Parquet schema (current files)
 
@@ -79,12 +77,6 @@ cmake .. && make -j$(nproc)
 
 The notebook expects the binary at `libsm/b2v-libsm/build/bin/decodeToJER`. Decoding is called per-row with a short timeout; ensure your focus set is small before bulk decode.
 
-## Data dictionary
-
-- Package dictionary: `dictionary/data_dictionary.csv`
-- Canonical (project-level): `project-docs/data-dictionaries/data_dictionary_bsm.csv`
-
-The dictionary reflects the observed six columns above and documents types, examples, and QA rules. Update it if you add derived/decoded fields.
 
 ## Validation checklist
 
@@ -97,7 +89,7 @@ The dictionary reflects the observed six columns above and documents types, exam
 
 - Time zone: UTC
 - Example capture times: see notebook output and Parquet filenames
-- Coverage: Records include Beijing sample geohash (`wx4dyyrk`) and Phoenix-focused analysis; filter to your AOI as needed
+- Coverage: Records include Beijing sample geohash and Phoenix-focused analysis; filter to your AOI as needed
 
 ## Privacy
 
@@ -107,8 +99,6 @@ No direct PII is included. Points represent public-road GPS fixes. Use spatial/t
 
 - Data: see `project-docs/LICENSE-data.txt` (CC BY 4.0)
 - Code/docs: see repository `LICENSE` (Apache-2.0)
-- Citation: see `project-docs/metadata/dcat_dataset.json` and dataset-level `dcat_metadata.json` for publisher/contact
-
 ---
 
 For questions, see contacts in `dcat_metadata.json`.
