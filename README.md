@@ -12,8 +12,7 @@ This repository contains Drive Arizona data analysis tools and datasets collecte
 - **BSM_analysis/**: Complete BSM (Basic Safety Message) data package with documentation
   - Contains Parquet data files from connected vehicles
   - Includes analysis notebook and comprehensive documentation
-  - Self-contained and distributable as an independent dataset
-- **notebooks/**: Jupyter notebooks for data exploration and analysis  
+  - Self-contained and distributable as an independent dataset 
 - **libsm/**: SAE J2735 message encoding/decoding tools
 
 ## Data Packages
