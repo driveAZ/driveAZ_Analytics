@@ -1,7 +1,7 @@
 
 # DriveAZ Analytics Repository
 
-This repository contains Vehicle-to-Everything (V2X) data analysis tools and datasets for transportation safety research.
+This repository contains Drive Arizona data analysis tools and datasets collected under the **Strengthening Mobility and Revolutionizing Transportation (SMART) Program** for Vehicle-to-Everything (V2X) transportation safety research.
 
 ## Repository Structure
 
