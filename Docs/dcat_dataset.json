@@ -1,0 +1,109 @@
+{
+  "@type": "dcat:Catalog",
+  "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
+  "dataset": [
+    {
+      "@type": "dcat:Dataset",
+      "accessLevel": "public",
+      "identifier": "urn:uuid:Strengthening Mobility and Revolutionizing Transportation (SMART) Program",
+      "title": "SMART Grant DriveArizona Connected Vehicle Datasets (BSM & PSM)",
+      "description": "Connected vehicle datasets collected via the DriveAZ iOS application, routed through DRIVEAZ-MSGROUTER, stored on CyVerse, and analyzed within driveAZ_Analytics. Includes Basic Safety Messages (BSM) in Parquet format and Personal Safety Messages (PSM) in JSON Lines, each with machine-readable data dictionaries.",
+      "keyword": [
+        "V2X",
+        "BSM",
+        "PSM",
+        "Connected Vehicles",
+        "Transportation Safety",
+        "Phoenix",
+        "Arizona",
+        "CyVerse"
+      ],
+      "publisher": {
+        "@type": "org:Organization",
+        "name": "Arizona Commerce Authority / City of Phoenix"
+      },
+      "contactPoint": {
+        "@type": "vcard:Contact",
+        "fn": "Marisa Walker & Simon Ramos",
+        "hasEmail": "mailto:marisaw@azcommerce.com"
+      },
+      "issued": "2025-06-27",
+      "modified": "2025-10-09",
+      "accrualPeriodicity": "irregular",
+      "temporal": "2025-06-27T08:02:01Z/2025-08-28T14:14:04Z",
+      "spatial": "Phoenix Metro Area (select intersections and vehicle travel points)",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "rights": "Sample research dataset; ensure privacy review before broader release. Attribution (TASL): Title — SMART Grant DriveArizona (BSM/PSM); Author — Arizona Commerce Authority / City of Phoenix; Source — https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/logs; License — CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+      "language": [
+        "en-US"
+      ],
+      "landingPage": "https://github.com/driveAZ/driveAZ_Analytics/",
+      "isPartOf": "SMART Grant DriveArizona program",
+      "distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "title": "BSM Parquet (CyVerse)",
+          "accessURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/logs?type=folder&resourceId=e54f5124-25b6-11f0-b00b-90e2ba675364",
+          "mediaType": "application/x-parquet",
+          "format": "Parquet",
+          "description": "BSM records stored as Parquet objects in CyVerse storage.",
+          "license": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "@type": "dcat:Distribution",
+          "title": "PSM JSONL (CyVerse)",
+          "accessURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/psm?type=folder&resourceId=11e41014-c641-11f0-b120-90e2ba675364",
+          "mediaType": "application/json",
+          "format": "JSONL",
+          "description": "PSM records stored as JSON Lines in CyVerse storage.",
+          "license": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "@type": "dcat:Distribution",
+          "title": "DriveArizona logs folder (CyVerse)",
+          "accessURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/logs?type=folder&resourceId=e54f5124-25b6-11f0-b00b-90e2ba675364",
+          "mediaType": "text/html",
+          "format": "HTML",
+          "description": "Top-level folder in CyVerse for DriveArizona logs (BSM/PSM).",
+          "license": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "@type": "dcat:Distribution",
+          "title": "BSM Data Dictionary",
+          "downloadURL": "https://github.com/driveAZ/driveAZ_Analytics/blob/main/BSM_analysis/dictionary/data_dictionary_bsm.csv",
+          "mediaType": "text/csv",
+          "format": "CSV",
+          "description": "Machine-readable data dictionary for BSM Parquet fields.",
+          "license": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        {
+          "@type": "dcat:Distribution",
+          "title": "PSM Data Dictionary",
+          "downloadURL": "https://github.com/driveAZ/driveAZ_Analytics/tree/main/PSM_analysis/dictionary",
+          "mediaType": "text/csv",
+          "format": "CSV",
+          "description": "Machine-readable data dictionary for PSM JSONL fields.",
+          "license": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "dataQuality": true,
+      "conformsTo": "https://doi.org/10.4271/J2735_202007",
+      "isReferencedBy": [
+        "swh:1:dir:500455176bf97a234d5fd09cfe4897a7dd471f91",  
+        "swh:1:dir:7eadd6f8bcbc325836cb062d3ccd5ed02c6ebd52",  
+        "swh:1:dir:85e8288e1ed24070dc78ffe66598437dcf1865aa",   
+        "swh:1:dir:fa081b6367637313b8a26f34ee833bd2140b6ddc"   
+      ],
+      "references": [
+        "https://archive.softwareheritage.org/swh:1:dir:500455176bf97a234d5fd09cfe4897a7dd471f91/",
+        "https://archive.softwareheritage.org/swh:1:dir:7eadd6f8bcbc325836cb062d3ccd5ed02c6ebd52/",
+        "https://archive.softwareheritage.org/swh:1:dir:85e8288e1ed24070dc78ffe66598437dcf1865aa/",
+        "https://archive.softwareheritage.org/swh:1:dir:fa081b6367637313b8a26f34ee833bd2140b6ddc/",
+        "https://github.com/driveAZ/DriveAZ-IOS",
+        "https://github.com/driveAZ/DRIVEAZ-MSGROUTER",
+        "https://github.com/driveAZ/driveAZ_Analytics",
+        "https://github.com/driveAZ/driveAZ_ETX"
+      ]
+    }
+  ]
+}

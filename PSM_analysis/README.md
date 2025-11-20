@@ -8,10 +8,6 @@ This folder contains Personal Safety Message (PSM) data captured from two inters
 
 **Repository Relationship**: This PSM_analysis folder within the larger driveAZ_Analytics repository serves as a self-contained data package. The parent repository contains additional analysis tools and related V2X datasets, while this folder can be distributed independently as a documented dataset.
 
-See the project-level canonical dictionaries and metadata in `project-docs/`:
-- `project-docs/data-dictionaries/data_dictionary_psm.csv`
-- `project-docs/metadata/dcat_dataset.json`
-- Licenses in `project-docs/`
 
 ## Data Contents and Structure
 
@@ -88,8 +84,8 @@ Open and run `analysis.ipynb`. The notebook includes clustering with scikit-lear
 ## File Inventory
 
 - **README.md**: This comprehensive documentation file
-- **dcat_metadata.json**: DCAT-US v1.1 compliant metadata for data discovery and cataloging
-- **dictionary/data_dictionary.csv**: Package-level field documentation derived from the observed JSONL schema
+- **dcat_metadata_PSM_Specific.json**: DCAT-US v1.1 compliant metadata for data discovery and cataloging
+- **dictionary/data_dictionary_psm.csv**: Package-level field documentation derived from the observed JSONL schema
 - ***.jsonl**: Timestamped PSM data files in JSON Lines format
 - **analysis.ipynb**: Jupyter notebook with data exploration examples
 
@@ -130,17 +126,16 @@ This dataset contains **no direct personally identifiable information (PII)**. D
 ## Data Dictionary
 
 - Package-level: `dictionary/data_dictionary.csv` (this folder)
-- Canonical (project-level): `project-docs/data-dictionaries/data_dictionary_psm.csv`
 
 If the schema changes, regenerate the package dictionary from the notebook by sampling keys and value domains in the loaded DataFrame/records, then update the canonical version after review.
 
 
 ## Licenses and citation
 
-- Data license: see `project-docs/LICENSE-data.txt` (CC BY 4.0)
+- Data license: see `Docs/LICENSE-data.txt` (CC BY 4.0)
 - Code/docs license: see repository `LICENSE` (Apache-2.0)
-- Citation and contacts: see `dcat_metadata.json` (package) and `project-docs/metadata/dcat_dataset.json` (dataset)
+- Citation and contacts: see `dcat_metadata.json` (package) and `Docs/dcat_dataset.json` (dataset)
 
 ---
 
-*For questions about this dataset or analysis tools, see contact information in `dcat_metadata.json`.*
+*For questions about this dataset or analysis tools, see contact information in `dcat_dataset.json`.*
