@@ -134,7 +134,7 @@ If the schema changes, regenerate the package dictionary from the notebook by sa
 
 - Data license: see `Docs/LICENSE-data.txt` (CC BY 4.0)
 - Code/docs license: see repository `LICENSE` (Apache-2.0)
-- Citation and contacts: see `dcat_metadata.json` (package) and `Docs/dcat_dataset.json` (dataset)
+- Citation and contacts: see `dcat_dataset_PSM_Specific.json` (package) and `Docs/dcat_dataset.json` (dataset)
 
 ---
 
