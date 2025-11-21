@@ -33,7 +33,7 @@
       "temporal": "2025-06-27T08:02:01Z/2025-08-28T14:14:04Z",
       "spatial": "Phoenix Metro Area (select intersections and vehicle travel points)",
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "rights": "Sample research dataset; ensure privacy review before broader release. Attribution (TASL): Title — SMART Grant DriveArizona (BSM/PSM); Author — Arizona Commerce Authority / City of Phoenix; Source — https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/logs; License — CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+      "rights": "Sample research dataset; ensure privacy review before broader release. Attribution (TASL): Title — SMART Grant DriveArizona (BSM/PSM); Author — Arizona Commerce Authority / City of Phoenix; Source — https://data.cyverse.org/dav-anon/iplant/projects/DriveArizona/; License — CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
       "language": [
         "en-US"
       ],
@@ -43,7 +43,7 @@
         {
           "@type": "dcat:Distribution",
           "title": "BSM Parquet (CyVerse)",
-          "accessURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/logs?type=folder&resourceId=e54f5124-25b6-11f0-b00b-90e2ba675364",
+          "accessURL": "https://data.cyverse.org/dav-anon/iplant/projects/DriveArizona/logs/",
           "mediaType": "application/x-parquet",
           "format": "Parquet",
           "description": "BSM records stored as Parquet objects in CyVerse storage.",
@@ -52,7 +52,7 @@
         {
           "@type": "dcat:Distribution",
           "title": "PSM JSONL (CyVerse)",
-          "accessURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/psm?type=folder&resourceId=11e41014-c641-11f0-b120-90e2ba675364",
+          "accessURL": "https://data.cyverse.org/dav-anon/iplant/projects/DriveArizona/psm/",
           "mediaType": "application/json",
           "format": "JSONL",
           "description": "PSM records stored as JSON Lines in CyVerse storage.",
@@ -61,7 +61,7 @@
         {
           "@type": "dcat:Distribution",
           "title": "DriveArizona logs folder (CyVerse)",
-          "accessURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/logs?type=folder&resourceId=e54f5124-25b6-11f0-b00b-90e2ba675364",
+          "accessURL": "https://data.cyverse.org/dav-anon/iplant/projects/DriveArizona/",
           "mediaType": "text/html",
           "format": "HTML",
           "description": "Top-level folder in CyVerse for DriveArizona logs (BSM/PSM).",
@@ -79,7 +79,7 @@
         {
           "@type": "dcat:Distribution",
           "title": "PSM Data Dictionary",
-          "downloadURL": "https://github.com/driveAZ/driveAZ_Analytics/tree/main/PSM_analysis/dictionary",
+          "downloadURL": "https://github.com/driveAZ/driveAZ_Analytics/blob/main/PSM_analysis/dictionary/data_dictionary_psm.csv",
           "mediaType": "text/csv",
           "format": "CSV",
           "description": "Machine-readable data dictionary for PSM JSONL fields.",

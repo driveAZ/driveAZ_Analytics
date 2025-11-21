@@ -27,8 +27,8 @@ TASL Example: “SMART Grant DriveArizona Connected Vehicle Data Dictionaries �
 TASL guidance: https://creativecommons.org/use-remix/attribution/
 
 ### Dataset-level TASL
-- BSM: Title — SMART Grant DriveArizona BSM Dataset (Phoenix, 2025-06 to 2025-08); Author — Arizona Commerce Authority; Source — https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/logs; License — CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
-- PSM: Title — SMART Grant DriveArizona PSM Dataset (Phoenix, 2025-06 to 2025-08); Author — City of Phoenix; Source — https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/psm; License — CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+- BSM: Title — SMART Grant DriveArizona BSM Dataset (Phoenix, 2025-06 to 2025-08); Author — Arizona Commerce Authority; Source — https://data.cyverse.org/dav-anon/iplant/projects/DriveArizona/logs/; License — CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+- PSM: Title — SMART Grant DriveArizona PSM Dataset (Phoenix, 2025-06 to 2025-08); Author — City of Phoenix; Source — https://data.cyverse.org/dav-anon/iplant/projects/DriveArizona/psm/; License — CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
 
 ## Contact
 Marisa Walker (Arizona Commerce Authority) – marisaw@azcommerce.com  

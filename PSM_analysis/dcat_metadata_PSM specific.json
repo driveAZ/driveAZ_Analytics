@@ -68,7 +68,7 @@
   "distribution": [
     {
       "@type": "dcat:Distribution",
-      "downloadURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/psm?type=folder&resourceId=11e41014-c641-11f0-b120-90e2ba675364",
+      "downloadURL": "https://data.cyverse.org/dav-anon/iplant/projects/DriveArizona/psm/",
       "mediaType": "application/x-ndjson",
       "format": "NDJSON",
       "describedBy": "https://github.com/driveAZ/driveAZ_Analytics/blob/main/PSM_analysis/dictionary/data_dictionary_psm.csv",

@@ -54,7 +54,7 @@
   "distribution": [
     {
       "@type": "dcat:Distribution",
-      "downloadURL": "https://de.cyverse.org/data/ds/iplant/home/shared/DriveArizona/logs?type=folder&resourceId=e54f5124-25b6-11f0-b00b-90e2ba675364",
+      "downloadURL": "https://data.cyverse.org/dav-anon/iplant/projects/DriveArizona/logs/",
       "mediaType": "application/x-parquet",
       "format": "Parquet",
       "describedBy": "https://github.com/driveAZ/driveAZ_Analytics/blob/main/BSM_analysis/dictionary/data_dictionary_bsm.csv",
